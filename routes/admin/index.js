@@ -1,0 +1,43 @@
+const router = require("express").Router()
+const categoriesRoutes = require("../admin/categories.admin.routes")
+const brandsRoutes = require("../admin/brands.admin.routes")
+const sizesRoutes = require("../admin/sizes.admin.routes")
+const collectionsRoutes = require("../admin/collections.admin.routes")
+const testimonialsRoutes = require("../admin/testimonials.routes")
+const offersRoutes = require("../admin/offers.admin.routes")
+const couponsRoutes = require("../admin/coupons.admin.routes")
+const productsRoutes = require("../admin/products.admin.routes")
+const customersRoutes = require("../admin/customers.admin.routes")
+const uploadRoutes = require("./upload.routes")
+const usersRoutes = require("./users.admin.routes")
+const filtersRoutes = require("./filters.admin.routes")
+const ordersRoutes = require("./orders.admin.routes")
+const governmentsRoutes = require("./governments.admin.routes")
+const configRoutes = require("./config.admin.routes")
+const contactsRoutes = require("./contacts.admin.routes.js")
+const {
+  isAuthenticated,
+  authorizeRole,
+} = require("../../middlewares/authentication")
+const { USER_ROLES } = require("../../helpers/constants")
+
+router.use(isAuthenticated, authorizeRole(USER_ROLES.ADMIN))
+
+router.use("/categories", categoriesRoutes)
+router.use("/brands", brandsRoutes)
+router.use("/sizes", sizesRoutes)
+router.use("/collections", collectionsRoutes)
+router.use("/testimonials", testimonialsRoutes)
+router.use("/offers", offersRoutes)
+router.use("/coupons", couponsRoutes)
+router.use("/products", productsRoutes)
+router.use("/customers", customersRoutes)
+router.use("/upload", uploadRoutes)
+router.use("/users", usersRoutes)
+router.use("/filters", filtersRoutes)
+router.use("/orders", ordersRoutes)
+router.use("/governments", governmentsRoutes)
+router.use("/config", configRoutes)
+router.use("/contacts", contactsRoutes)
+
+module.exports = router

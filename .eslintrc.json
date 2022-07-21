@@ -1,0 +1,15 @@
+{
+  "extends": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "env": {
+    "es6": true,
+    "babel": true,
+    "node": true
+  },
+  "rules": {
+    "lines-between-class-members": ["error", "always"],
+    "space-before-function-paren": ["error", "always"]
+  }
+}
