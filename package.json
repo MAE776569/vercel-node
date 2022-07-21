@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "DEBUG=kidzinia:* nodemon index.js",
+    "build": "node -v",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write ."
   },
